@@ -20,11 +20,11 @@ int field[N*N];
 unsigned int dllist[N*N];
 
 
-void init_field(int field[], unsigned int n, unsigned int mark);
+void init_field(unsigned int n, unsigned int mark);
 
-void gen_dls(int field[], unsigned int n, unsigned int dllist[], unsigned int k){
+void gen_dls(unsigned int n, unsigned int k){
     int mark;
-    if (2 * k > n){
+    if (2 * k > n * n){
         mark = 0;
         k = n - k;
     } else{
@@ -37,24 +37,23 @@ void gen_dls(int field[], unsigned int n, unsigned int dllist[], unsigned int k)
     }
 }
 
-void move();
+void move(unsigned int n, unsigned int k);
 
 
-void run(int field[], unsigned int n, unsigned int dllist[], unsigned int k) {
+void run(unsigned int n, unsigned int k) {
     unsigned int new_field[n*n];
     while (k != 0){
-//        move(field, n*n, dllist, k);
+//        move(n, k);
     }
 }
 
 void iterate(const unsigned int n, const unsigned int k){
-
-    gen_dls(field, n*n, dllist, k);
-    run(field, n*n, dllist, k);
+    gen_dls(n, k);
+    run(n, k);
 }
 
 int main() {
-
+    auto n = 10, k = 6;
 
     iterate(n, k);
 
